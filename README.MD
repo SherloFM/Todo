@@ -6,7 +6,7 @@ This project is a Spring Boot Todo API for managing categories through REST endp
 
 ## GitHub Repository
 
-[GitHub Repository](YOUR_GITHUB_REPOSITORY_LINK_HERE)
+[GitHub Repository](https://github.com/SherloFM/Todo)
 
 ## Endpoints
 
