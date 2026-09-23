@@ -25,5 +25,10 @@ public class Category {
     @Column
     private String description;
 
+    @Lob
+    @Column(columnDefinition = "BYTEA")
+    private byte[] img;
+
+    private String imgtype;
 
 }
