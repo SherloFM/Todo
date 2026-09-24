@@ -64,6 +64,16 @@ public class CategoryService {
         }
     }
 
+    public Category updateCategory(Category categoryObject, Long id){
+        Optional<Category> category = categoryRepository.findById(id);
+
+        if(category.isEmpty()){
+            throw new InformationExistException("category doesnt exist");
+        }else {
+            categoryObject.setId(id);
+            return categoryRepository.save(categoryObject);
+        }
+    }
 
     public Category uploadImage(
             @RequestParam("img") MultipartFile img,

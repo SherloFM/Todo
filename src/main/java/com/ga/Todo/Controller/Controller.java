@@ -55,4 +55,12 @@ public class Controller {
         return categoryService.uploadImage(img,id);
     }
 
+    @PutMapping("/update/{id}")
+    public Category updateCategory(
+            @PathVariable Long id,
+            @RequestBody Category categoryObject
+    ){
+        return categoryService.updateCategory(categoryObject,id);
+    }
+
 }
