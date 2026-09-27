@@ -1,6 +1,7 @@
 package com.ga.Todo.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,5 +31,10 @@ public class Category {
     private byte[] img;
 
     private String imgtype;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }
