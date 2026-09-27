@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface ItemRepository extends JpaRepository<Item,Long>{
     Item findByName(String itemName);
-    List<Item> findByCategoryID(Long categoryID);
+    List<Item> findByCategory_Id(Long categoryID);
 }
