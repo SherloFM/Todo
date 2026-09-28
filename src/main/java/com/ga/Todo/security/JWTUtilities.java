@@ -32,12 +32,12 @@ public class JWTUtilities {
     }
 
     public String getUserNameFromJwtTokens(String token){
-        return Jwts.parserBuilder().setSigningKey(jwtSecret).build().parseClaimsJwt(token).getBody().getSubject();
+        return Jwts.parserBuilder().setSigningKey(jwtSecret).build().parseClaimsJws(token).getBody().getSubject();
     }
 
     public boolean validate(String authToken){
         try {
-            Jwts.parser().setSigningKey(jwtSecret).parsePlaintextJws(authToken);
+            Jwts.parserBuilder().setSigningKey(jwtSecret).build().parseClaimsJws(authToken);
             return true;
         }catch (SecurityException e){
             logger.log(Level.SEVERE,"INvalid",e.getMessage());

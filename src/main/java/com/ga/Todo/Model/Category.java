@@ -4,6 +4,8 @@ package com.ga.Todo.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 
@@ -26,8 +28,8 @@ public class Category {
     @Column
     private String description;
 
-    @Lob
-    @Column(columnDefinition = "BYTEA")
+    @JdbcTypeCode(SqlTypes.VARBINARY)
+    @Column(columnDefinition = "bytea", name = "img")
     private byte[] img;
 
     private String imgtype;

@@ -21,6 +21,7 @@ public class Controller {
 
     public CategoryService categoryService;
 
+    @Autowired
     public void setCategoryService(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
@@ -36,12 +37,14 @@ public class Controller {
     }
 
     @GetMapping("/chosencategory")
-    public Optional<Category> getCategories(Long id){
-        return categoryService.getCategories(id);
+    public Category getCategories(
+            @RequestParam(value = "chosen") Long chosen
+    ){
+        return categoryService.getCategories(chosen);
     }
 
     @PostMapping("/postcategories")
-    public Category addCategories(Category categoryObject){
+    public Category addCategories( @RequestBody Category categoryObject){
        return categoryService.addCategories(categoryObject);
     }
 
