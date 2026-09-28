@@ -69,13 +69,13 @@ public class CategoryService {
 
 
     public void deleteCategory(
-            @PathVariable Long id
+            Long id
     ){
         Category category = categoryRepository.findByUserIdAndId(getCurrentLoggedInUser().getId(),id);
         if(category == null){
             throw new InformationExistException("no file");
         }else{
-            categoryRepository.delete(category);
+            categoryRepository.deleteById(id);
         }
     }
 

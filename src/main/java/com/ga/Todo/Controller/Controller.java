@@ -49,7 +49,10 @@ public class Controller {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteCategory(Long id){
+    public void deleteCategory(
+            @PathVariable Long id
+    ){
+
         categoryService.deleteCategory(id);
     }
 
